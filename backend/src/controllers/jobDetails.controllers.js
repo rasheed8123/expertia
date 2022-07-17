@@ -7,6 +7,7 @@ const router=express.Router();
 router.get('/job/search/:id', async(req,res)=>{
     try {
         const job = await jobdetail.find({role:req.params.id}).lean().exec();
+        console.log(job)
         return res.status(200).send(job);
     } catch (error) {
         return res.status(500).send(error);
